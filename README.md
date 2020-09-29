@@ -25,13 +25,13 @@ A chief data scientist for a city school district requested help with anlayzing 
   |:------------------------|
   |![District Summary](https://github.com/whitneylosinski/School_District_Analysis/blob/master/Resources/District%20Summary.png)|
  
-- ***School Summary*** - The school summary results changed only for the math scores, reading scores and % passing values for Thomas High School.  
+- ***School Summary*** - The school summary results changed for the math scores, reading scores and % passing values for Thomas High School only.  
 
   | Original School Summary | Revised School Summary |
   |:------------------------|:-----------------------|
   |![Per School Summary](https://github.com/whitneylosinski/School_District_Analysis/blob/master/Resources/Per%20School%20Summary.png) | ![Revised Per School Summary](https://github.com/whitneylosinski/School_District_Analysis/blob/master/Resources/Revised%20Per%20School%20Summary.png) |
 
-- ***School Rankings*** - 
+- ***School Rankings*** - Removing the altered scores did not affect the rankings of the top five and bottom five schools based on overall passing percentage.  Thomas High School was the 2nd top school in both the original and the revised analysis.
 
    |Top Five Schools by % Overall Passing |Bottom Five Schools by % Overall Passing|
    |:------------------------|:-----------------------|
