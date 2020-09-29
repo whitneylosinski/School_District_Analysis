@@ -25,7 +25,7 @@ A chief data scientist for a city school district requested help with anlayzing 
   |:------------------------|
   |![District Summary](https://github.com/whitneylosinski/School_District_Analysis/blob/master/Resources/District%20Summary.png)|
  
-- ***School Summary*** - The school summary results changed for the math scores, reading scores and % passing values for Thomas High School only.  
+- ***School Summary*** - The school summary results changed for the math scores, reading scores and % passing values for Thomas High School only.  Removing the altered scores actually increased their passing percentages by a small amount (less than 1%).
 
   | Original School Summary | Revised School Summary |
   |:------------------------|:-----------------------|
