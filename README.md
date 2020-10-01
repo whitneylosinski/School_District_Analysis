@@ -1,4 +1,4 @@
-# School_District_Analysis
+# School District Analysis
 
 ## Overview of the school district analysis:
 A chief data scientist for a city school district requested help with anlayzing student funding and standardized testing results to find performance trends and patterns.  Specifically, the deliverables requested were as follows:
@@ -53,7 +53,7 @@ The following deliverables were obtained from the analysis both prior to replaci
   |:------------------------|
   |![Results by Spending](https://github.com/whitneylosinski/School_District_Analysis/blob/master/Resources/Result%20by%20Spending.png)|
    
-   - ***Scores by School Size*** - Comparing the school performance based on the school size, the data showed that medium sized schools (1000-2000 students) performed best while large schools (2000-5000 students) performed worst.  with Results based on school size were not affected by removing the altered scores.
+   - ***Scores by School Size*** - Comparing the school performance based on the school size, the data showed that medium sized schools (1000-2000 students) performed best while large schools (2000-5000 students) performed worst.  Results based on school size were not affected by removing the altered scores.
    
   | Scores by School Size |
   |:------------------------|
@@ -93,7 +93,7 @@ While there weren't many changes to the outcomes of the final analysis results w
          revised_passing_math_percentage = passing_math_count / revised_student_count * 100
          revised_passing_reading_percentage = passing_reading_count / revised_student_count * 100
       ```
-       Similar conditionals and calculations were used to find the overall passing percentage but this time, the conditional was set to count the number of students with both math and reading scores >= 70
+       Similar conditionals and calculations were used to find the overall passing percentage but this time, the conditional was set to count the number of students with both math AND reading scores >= 70
    
       ```py
       # Calculate the students who passed both reading and math.
@@ -108,13 +108,13 @@ While there weren't many changes to the outcomes of the final analysis results w
       revised_overall_passing_percentage = overall_passing_math_reading_count / revised_student_count * 100
       ```
       
-   2. ***Recalculating the Passing Students from Thomas High School*** - Because the data for Thomas High School changed when the altered scores were removed.  All of the average scores for matha and reading needed to be recalculated for the 10th, 11th and 12th grades.  To do this, the `.loc()` and `.notnull()` functions were used to look up all of the rows in the school summary with the school name listed as Thomas High School and a math score with any value except null (NaN).  The `.count()` function was then used to count the number of student ID's for those rows.  This provided the total number of 10th-12th graders at Thomas High School.  
+   2. ***Recalculating the Passing Students from Thomas High School*** - Because the data for Thomas High School changed when the altered scores were removed.  All of the average scores for math and reading needed to be recalculated for the 10th, 11th and 12th grades.  To do this, the `.loc()` and `.notnull()` functions were used to look up all of the rows in the school summary with the school name listed as Thomas High School and a math score with any value except null (NaN).  The `.count()` function was then used to count the number of student ID's for those rows.  This provided the total number of 10th-12th graders at Thomas High School.  
    
       ```py
       # Step 5.  Get the number of 10th-12th graders from Thomas High School (THS).
       THS_student_count = school_data_complete_df.loc[((school_data_complete_df["school_name"] == "Thomas High School")&(school_data_complete_df["math_score"].notnull()))].count()["Student ID"]
       ```
-      Next, the `.loc` function was used with a conditional to find the rows with the school name listed as Thomas High School and a math score >= 70.  Again, the `.count()` function was used to count the number of student names in those rows, providing the number of students who passed math from Thomas High School.  The same process was used to find the number of students passing reading from Thomas High School.
+      Next, the `.loc()` function was used with a conditional to find the rows with the school name listed as Thomas High School and a math score >= 70.  Again, the `.count()` function was used to count the number of student names in those rows, providing the number of students who passed math from Thomas High School.  The same process was used to find the number of students passing reading from Thomas High School.
       
       ```py
       # Step 6. Get all the students passing math from THS
@@ -123,7 +123,7 @@ While there weren't many changes to the outcomes of the final analysis results w
       # Step 7. Get all the students passing reading from THS
       THS_passing_reading_count = school_data_complete_df.loc[(school_data_complete_df["school_name"] == "Thomas High School")&(school_data_complete_df["reading_score"] >= 70)].count()["student_name"]
       ```
-      To calculate the number of students passing both reading and math from Thomas High School, the `.loc` and `.count` functions were combined with two conditionals to find count the number of rows with both the school name listed as Thomas High School, math scores >=70 AND reading scores >=70.
+      To calculate the number of students passing both reading and math from Thomas High School, the `.loc()` and `.count()` functions were combined with two conditionals to find count the number of rows with both the school name listed as Thomas High School, math scores >=70 AND reading scores >=70.
       
       ```py
       # Step 8. Get all the students passing math and reading from THS
@@ -143,7 +143,7 @@ While there weren't many changes to the outcomes of the final analysis results w
       THS_overall_passing_percentage = THS_overall_passing_count / THS_student_count * 100
       ```
    
-   4. ***Updating the School Summary*** - Because the passing percentages changed after being recalculated, the school summary needed to be updated for Thomas High School to reflect the correct values.  To do this, the `.loc` function was used to find the row with an index of Thomas High School and set the passing percentages equal to their defined variable as shown below.
+   4. ***Updating the School Summary*** - Because the passing percentages changed after being recalculated, the school summary needed to be updated for Thomas High School to reflect the correct values.  To do this, the `.loc()` function was used to find the row with an index of Thomas High School and set the passing percentages equal to their defined variable as shown below.
    
       ```py
       # Step 12. Replace the passing math percent for Thomas High School in the per_school_summary_df.
